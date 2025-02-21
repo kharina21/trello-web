@@ -1,6 +1,4 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import { Button, IconButton } from "@mui/material";
 import { Delete, Home as HomeIcon } from "@mui/icons-material";
 import { red } from "@mui/material/colors";
