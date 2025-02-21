@@ -1,35 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import { useState } from "react";
+import { Button, IconButton } from "@mui/material";
+import { Delete, Home as HomeIcon } from "@mui/icons-material";
+import { red } from "@mui/material/colors";
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    const [count, setCount] = useState(0);
+    return (
+        <>
+            <h1>kha21dev</h1>
+            <div>
+                <Button variant="text">Hello button</Button>
+                <Button variant="contained">Hello button</Button>
+                <Button variant="outlined">Hello button</Button>
+            </div>
+            <div>
+                <HomeIcon color="success" />
+            </div>
+            <div>
+                <Button variant="contained" sx={{ color: red[500] }}>
+                    <Delete />
+                </Button>
+            </div>
+        </>
+    );
 }
 
-export default App
+export default App;
