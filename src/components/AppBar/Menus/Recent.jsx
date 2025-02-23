@@ -30,7 +30,6 @@ function Recent() {
                 aria-haspopup='true'
                 aria-expanded={open ? 'true' : undefined}
                 onClick={handleClick}
-                endIcon={<ExpandMore />}
             >
                 Recent
             </Button>
