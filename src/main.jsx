@@ -6,10 +6,10 @@ import theme from "./theme.js";
 import App from "./App.jsx";
 
 createRoot(document.getElementById("root")).render(
-    <StrictMode>
-        <CssVarsProvider theme={theme}>
-            <CssBaseline />
-            <App />
-        </CssVarsProvider>
-    </StrictMode>
+  <StrictMode>
+    <CssVarsProvider theme={theme}>
+      <CssBaseline />
+      <App />
+    </CssVarsProvider>
+  </StrictMode>,
 );
