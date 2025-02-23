@@ -1,6 +1,6 @@
 import ModeSelect from '../../components/ModeSelect';
 import Box from '@mui/material/Box';
-function AppBoard() {
+function AppBar() {
     return (
         <Box
             sx={{
@@ -16,4 +16,4 @@ function AppBoard() {
     );
 }
 
-export default AppBoard;
+export default AppBar;

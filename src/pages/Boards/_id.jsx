@@ -1,6 +1,6 @@
 // Board Details
 import Container from '@mui/material/Container';
-import AppBoard from '../../components/AppBar';
+import AppBar from '~/components/AppBar';
 import BoardBar from './BoadBar';
 import BoardContent from './BoardContent';
 function Board() {
@@ -10,7 +10,7 @@ function Board() {
             maxWidth={false}
             sx={{ height: '100vh' }}
         >
-            <AppBoard />
+            <AppBar />
             <BoardBar />
             <BoardContent />
         </Container>
