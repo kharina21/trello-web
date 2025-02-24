@@ -14,7 +14,7 @@ import Profile from './Menus/Profile';
 //icon
 import AppsIcon from '@mui/icons-material/Apps';
 import SvgIcon from '@mui/icons-material/Apps';
-import { ReactComponent as TrelloIcon } from '~/assets/trello.svg';
+import TrelloIcon from '~/assets/trello.svg?react';
 import Starred from './Menus/Starred';
 import Templates from './Menus/Templates';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
@@ -60,7 +60,7 @@ function AppBar() {
                         Trello
                     </Typography>
                 </Box>
-                <Box sx={{display:{xs:'none',sm:'flex'}, gap: 1, alignItems: 'center'}}>
+                <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 1, alignItems: 'center' }}>
                     <Workspaces />
                     <Recent />
                     <Starred />
@@ -80,10 +80,10 @@ function AppBar() {
                     label='Search'
                     type='search'
                     size='small'
-                    sx={{minWidth: '120px'}}
+                    sx={{ minWidth: '120px' }}
                 />
 
-                <ModeSelect sx={{minWidth: '120px'}}/>
+                <ModeSelect sx={{ minWidth: '120px' }} />
                 <Tooltip
                     title='Notifications'
                     disableInteractive
@@ -91,7 +91,7 @@ function AppBar() {
                     <Badge
                         color='secondary'
                         variant='dot'
-                        sx={{ cursor: 'pointer' ,color: 'primary.main'}}
+                        sx={{ cursor: 'pointer', color: 'primary.main' }}
                     >
                         <NotificationsNoneIcon />
                     </Badge>
@@ -100,7 +100,7 @@ function AppBar() {
                     title='Help'
                     disableInteractive
                 >
-                    <HelpOutlineIcon sx={{ cursor: 'pointer' ,color: 'primary.main'}} />
+                    <HelpOutlineIcon sx={{ cursor: 'pointer', color: 'primary.main' }} />
                 </Tooltip>
 
                 <Profile />
