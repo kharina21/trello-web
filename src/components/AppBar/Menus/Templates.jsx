@@ -33,6 +33,7 @@ function Templates() {
                 aria-haspopup='true'
                 aria-expanded={open ? 'true' : undefined}
                 onClick={handleClick}
+                sx={{ color: 'white' }}
             >
                 Templates
             </Button>

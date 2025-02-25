@@ -19,7 +19,16 @@ import Starred from './Menus/Starred';
 import Templates from './Menus/Templates';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import LibraryAddIcon from '@mui/icons-material/LibraryAdd';
+import InputAdornment from '@mui/material/InputAdornment';
+import SearchIcon from '@mui/icons-material/Search';
+import CloseIcon from '@mui/icons-material/Close';
+
 function AppBar() {
+    const [inputSearch, setInputSearch] = useState('');
+    const handleInputSearch = (e) => setInputSearch(e.target.value);
+
+
     return (
         <Box
             sx={{
@@ -28,10 +37,10 @@ function AppBar() {
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                paddingRight: 2,
-                paddingLeft: 2,
+                paddingX: 2,
                 gap: 2,
                 overflowX: 'auto',
+                bgcolor: (theme) => (theme.palette.mode === 'dark' ? '#2c3e50' : '#1565c0')
             }}
         >
             <Box
@@ -39,7 +48,7 @@ function AppBar() {
                 alignItems={'center'}
                 gap={2}
             >
-                <AppsIcon sx={{ color: 'primary.main' }} />
+                <AppsIcon sx={{ color: 'white' }} />
                 <Box
                     display={'flex'}
                     alignItems={'center'}
@@ -48,14 +57,14 @@ function AppBar() {
                     <SvgIcon
                         component={TrelloIcon}
                         inheritViewBox
-                        sx={{ color: 'primary.main' }}
+                        sx={{ color: 'white' }}
                         fontSize='small'
                     />
                     <Typography
                         variant='span'
                         fontSize={'1.2rem'}
                         fontWeight={'bold'}
-                        color={'primary.main'}
+                        color={'white'}
                     >
                         Trello
                     </Typography>
@@ -65,7 +74,7 @@ function AppBar() {
                     <Recent />
                     <Starred />
                     <Templates />
-                    <Button variant='outlined'>Create</Button>
+                    <Button variant='outlined' startIcon={<LibraryAddIcon />} sx={{ color: 'white', border: 'none', '&:hover': { border: 'none' } }}>Create</Button>
                 </Box>
             </Box>
             <Box
@@ -76,11 +85,33 @@ function AppBar() {
                 }}
             >
                 <TextField
+                    value={inputSearch}
+                    onChange={handleInputSearch}
                     id='outlined-search'
                     label='Search'
-                    type='search'
+                    type='text'
                     size='small'
-                    sx={{ minWidth: '120px' }}
+                    InputProps={{
+                        startAdornment: (
+                            <InputAdornment position="start">
+                                <SearchIcon sx={{ color: 'white' }} fontSize='small' />
+                            </InputAdornment>
+                        ),
+                        endAdornment: (
+                            <CloseIcon sx={{ color: 'white', cursor: 'pointer', display: inputSearch === '' ? 'none' : 'block' }} onClick={() => setInputSearch("")} fontSize='small' />
+                        )
+                    }}
+                    sx={{
+                        minWidth: '120px', maxWidth: '170px',
+                        '& label': { color: 'white' },
+                        '& input': { color: 'white' },
+                        '& label.Mui-focused': { color: 'white' },
+                        '& .MuiOutlinedInput-root': {
+                            '& fieldset': { borderColor: 'white' },
+                            '&:hover fieldset': { borderColor: 'white' },
+                            '&.Mui-focused fieldset': { borderColor: 'white' }
+                        }
+                    }}
                 />
 
                 <ModeSelect sx={{ minWidth: '120px' }} />
@@ -89,9 +120,9 @@ function AppBar() {
                     disableInteractive
                 >
                     <Badge
-                        color='secondary'
+                        color='warning'
                         variant='dot'
-                        sx={{ cursor: 'pointer', color: 'primary.main' }}
+                        sx={{ cursor: 'pointer', color: 'white' }}
                     >
                         <NotificationsNoneIcon />
                     </Badge>
@@ -100,12 +131,12 @@ function AppBar() {
                     title='Help'
                     disableInteractive
                 >
-                    <HelpOutlineIcon sx={{ cursor: 'pointer', color: 'primary.main' }} />
+                    <HelpOutlineIcon sx={{ cursor: 'pointer', color: 'white' }} />
                 </Tooltip>
 
                 <Profile />
             </Box>
-        </Box>
+        </Box >
     );
 }
 
