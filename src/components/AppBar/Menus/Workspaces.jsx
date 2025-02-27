@@ -10,7 +10,7 @@ import ContentCut from '@mui/icons-material/ContentCut';
 import ContentCopy from '@mui/icons-material/ContentCopy';
 import ContentPaste from '@mui/icons-material/ContentPaste';
 import Cloud from '@mui/icons-material/Cloud';
-import ExpandMore from '@mui/icons-material/ExpandMore';
+import Box from '@mui/material/Box'
 
 function Workspaces() {
     const [anchorEl, setAnchorEl] = useState(null);
@@ -25,7 +25,7 @@ function Workspaces() {
     };
 
     return (
-        <div>
+        <Box>
             <Button
                 id='basic-button-workspaces'
                 aria-controls={open ? 'basic-menu-workspaces' : undefined}
@@ -89,7 +89,7 @@ function Workspaces() {
                     <ListItemText>Web Clipboard</ListItemText>
                 </MenuItem>
             </Menu>
-        </div>
+        </Box>
     );
 }
 
