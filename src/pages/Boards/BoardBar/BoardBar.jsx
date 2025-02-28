@@ -25,7 +25,6 @@ function BoardBar() {
                 bgcolor: (theme) => (theme.palette.mode === 'dark' ? '#34495e' : '#1976d2'),
                 height: (theme) => theme.trello.boardBarHeight, width: '100%',
                 display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 2, overflowX: 'auto',
-                borderBottom: '2px solid white',
                 '&::-webkit-scrollbar-track': { m: 2 } //thanh scroll cach ra 16px
 
             }}
