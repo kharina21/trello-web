@@ -1,9 +1,11 @@
 
 import Box from "@mui/material/Box";
 import ListColumn from './ListColumns/ListColumn';
+import { sortByOrderedArr } from "~/utils/sorts";
 
-
-function BoardContent() {
+function BoardContent({ board }) {
+  const orderedArr = sortByOrderedArr(board?.columns, board?.columnOrderIds, '_id');
+  ;
   return (
     <Box
       sx={{
@@ -13,8 +15,7 @@ function BoardContent() {
         p: '10px 0'
       }}
     >
-      <ListColumn />
-
+      <ListColumn columns={orderedArr} />
     </Box >
   );
 }

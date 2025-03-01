@@ -17,7 +17,9 @@ import ContentPaste from '@mui/icons-material/ContentPaste';
 import AddCardIcon from '@mui/icons-material/AddCard';
 import DragHandleIcon from '@mui/icons-material/DragHandle';
 import ListCard from './ListCard/ListCard'
-function Column() {
+import { sortByOrderedArr } from '~/utils/sorts';
+function Column({ column }) {
+    const sortedArr = sortByOrderedArr(column?.cards, column?.cardOrderIds, '_id')
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
 
@@ -39,7 +41,7 @@ function Column() {
         }>
             {/* header */}
             < Box sx={{ height: theme => theme.trello.columnHeaderHeight, p: 2, display: 'flex', alignItems: 'center', justifyContent: 'space-between', }}>
-                <Typography variant='h6' sx={{ fontWeight: 'bold', cursor: 'pointer', fontSize: '1rem' }}>Column Title</Typography>
+                <Typography variant='h6' sx={{ fontWeight: 'bold', cursor: 'pointer', fontSize: '1rem' }}>{column?.title}</Typography>
                 <Box>
                     <Tooltip title='More options'>
                         <ExpandMore id='basic-column-dropdown'
@@ -82,7 +84,7 @@ function Column() {
                     </Menu>
                 </Box>
             </Box >
-            <ListCard />
+            <ListCard cards={sortedArr} />
             {/* footer */}
             < Box sx={{ height: theme => theme.trello.columnFooterHeight, p: 2, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 <Button startIcon={<AddCardIcon />}>Add new card</Button>

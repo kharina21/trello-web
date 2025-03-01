@@ -11,13 +11,15 @@ import Tooltip from '@mui/material/Tooltip'
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import Button from '@mui/material/Button'
 
+import { UpperCaseFirstLetter } from '~/utils/formatter';
+
 const CHIP_BOARDBAR_STYLE = {
     color: 'white', backgroundColor: "transparent", border: 'none', px: '5px', borderRadius: '4px',
     '& .MuiSvgIcon-root': { color: 'white' }, '&:hover': { bgcolor: 'primary.50' }, '&:hover': { backgroundColor: 'primary.30' }
 }
 
 
-function BoardBar() {
+function BoardBar({ board }) {
     return (
         <Box
             px={2}
@@ -30,9 +32,9 @@ function BoardBar() {
             }}
         >
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                <Chip icon={<DashboardIcon />} label="Kha21dev" clickable onClick={() => { }}
+                <Chip icon={<DashboardIcon />} label={board?.title} clickable onClick={() => { }}
                     sx={CHIP_BOARDBAR_STYLE} />
-                <Chip icon={<VpnLockIcon />} label="Public/Private Workspace" clickable onClick={() => { }}
+                <Chip icon={<VpnLockIcon />} label={UpperCaseFirstLetter(board?.type)} clickable onClick={() => { }}
                     sx={CHIP_BOARDBAR_STYLE} />
                 <Chip icon={<AddToDriveIcon />} label="Add to drive" clickable onClick={() => { }}
                     sx={CHIP_BOARDBAR_STYLE} />
